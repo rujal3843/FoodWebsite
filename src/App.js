@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Search } from './pages/Search'
+import { Route, Routes } from 'react-router'
+import { Header } from './component/Header'
+import { Home } from './pages/Home'
+import { Special } from './pages/Special'
+import { Details } from './pages/Details'
 
-function App() {
+// import { Name } from './pages/Name'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home />} />
+        <Route path='search/:searchText' element={<Search />} />
+        <Route path='special' element={<Special />} />
+        <Route path='detail/:id' element={<Details />} />
+
+        <Route path='*' element={<h1>Error 404 page not found</h1>} />
+
+
+      </Routes>
+    </>
+
+  )
 }
 
-export default App;
+export default App
